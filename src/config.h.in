@@ -1,0 +1,12 @@
+#ifndef __MBDM_CONFIG_H__
+#define __MBDM_CONFIG_H__
+
+
+#define MBDM_VERSION "${MBDM_VERSION}"
+
+
+
+
+
+
+#endif // __MBDM_CONFIG_H__

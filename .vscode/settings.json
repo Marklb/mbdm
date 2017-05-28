@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.m": "matlab",
+    "*.h.in": "cpp",
+    "*.jsx": "javascript",
+    "xiosbase": "cpp"
+  }
+}
