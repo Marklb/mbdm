@@ -2,9 +2,10 @@
 
 LRESULT Scrollbar::OnCreate()
 {
-    printf("Create scrollbar\n");
+    // printf("Create scrollbar\n");
     m_BtnsActive = true;
-    m_ButtonSize = 10;
+    // m_ButtonSize = 10;
+    m_ButtonSize = 0;
     m_Orientation = Scrollbar::ORIENTATION_VERTICAL;
     m_ContentSize = 200;
     m_WindowSize = 100;
@@ -339,7 +340,8 @@ void Scrollbar::PaintContent(PAINTSTRUCT *pps)
     GetGripRect(&gr);
 
     HBRUSH hBrushBtn = CreateSolidBrush(RGB(0,0,0));
-    HBRUSH hBrushGrip = CreateSolidBrush(RGB(0,150,0));
+    // HBRUSH hBrushGrip = CreateSolidBrush(RGB(0,150,0));
+    HBRUSH hBrushGrip = CreateSolidBrush(RGB(40,60,120));
     // if(m_GripPressed == true){
     //     hBrushGrip = CreateSolidBrush(RGB(40,60,120));
     // }

@@ -44,6 +44,23 @@ LRESULT BasePanel::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     LRESULT lres;
 
+    // for(BasePanel *panel : m_ListeningHwnds){
+        // if (((LPNMHDR)lParam)->hwndFrom == panel->GetHWND()){
+        //     printf("Clicked Item: %d\n", i);
+        // }
+    // }
+    for(HWND hWnd : m_ListeningHwnds){
+        NMHDR nmh;
+        // nmh.code = CUSTOM_SELCHANGE;    // Message type defined by control.
+        nmh.code = uMsg;    // Message type defined by control.
+        nmh.idFrom = GetDlgCtrlID(GetHWND());
+        nmh.hwndFrom = GetHWND();
+        SendMessage(hWnd,
+            WM_NOTIFY,
+            nmh.idFrom,
+            (LPARAM)&nmh);
+    }
+
     switch (uMsg) {
         case WM_NCDESTROY:
         {
@@ -154,4 +171,14 @@ void BasePanel::SetBackgroundColor(COLORREF color)
 {
     // printf("R: %i, G: %i, B: %i\n", GetRValue(color), GetGValue(color), GetBValue(color));
     m_BgColor = color;
+}
+
+// void BasePanel::AddListener(BasePanel *panel)
+// {
+//     m_ListeningHwnds.push_back(panel);
+// }
+
+void BasePanel::AddListener(HWND hWnd)
+{
+    m_ListeningHwnds.push_back(hWnd);
 }

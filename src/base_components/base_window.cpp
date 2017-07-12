@@ -75,6 +75,8 @@ LRESULT BaseWindow::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
         // case WM_ERASEBKGND:
         //   return (LRESULT)1; // Say we handled it.
+
+        case WM_SIZE: return this->OnResize(wParam, lParam);
     }
 
     return DefWindowProc(m_hWnd, uMsg, wParam, lParam);
@@ -94,6 +96,11 @@ void BaseWindow::OnPrintClient(HDC hdc)
     ps.hdc = hdc;
     GetClientRect(m_hWnd, &ps.rcPaint);
     PaintContent(&ps);
+}
+
+int BaseWindow::OnResize(WPARAM wParam, LPARAM lParam)
+{
+    return 0;
 }
 
 void BaseWindow::SetPosition(int x, int y)

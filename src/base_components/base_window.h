@@ -15,6 +15,7 @@ protected:
 protected:
     virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
     virtual void PaintContent(PAINTSTRUCT *pps) { }
+    virtual int OnResize(WPARAM wParam, LPARAM lParam);
     virtual LPCTSTR ClassName() = 0;
     virtual BOOL WinRegisterClass(WNDCLASS *pwc) { return RegisterClass(pwc); }
     virtual ~BaseWindow() { }

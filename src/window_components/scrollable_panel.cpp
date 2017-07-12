@@ -235,6 +235,11 @@ Panel* ScrollablePanel::GetPanel(void)
     return m_ScrollableContentPanel;
 }
 
+Scrollbar* ScrollablePanel::GetVScrollBar(void)
+{
+    return m_VScrollbar;
+}
+
 void ScrollablePanel::SetVScroll(bool isActive)
 {
     // if(isActive == true && m_VScrollbar == NULL){

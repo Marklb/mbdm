@@ -2,6 +2,8 @@
 
 LRESULT Button::OnCreate()
 {
+    // m_OnMouseDownFn = NULL;
+
     m_Text.assign("");
     SetButtonTextColor(RGB(60,40,150));
     SetBackgroundColor(RGB(0,0,0));
@@ -27,11 +29,11 @@ LRESULT Button::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
         //                  SWP_NOZORDER | SWP_NOACTIVATE);
         //   }
         //   return 0;
-        case WM_SIZE:
-        {
+        // case WM_SIZE:
+        // {
 
-            break;
-        }
+        //     break;
+        // }
 
         // case WM_SETFOCUS:
         //   if (m_hWndChild) {
@@ -39,7 +41,8 @@ LRESULT Button::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
         //   }
         //   return 0;
 
-        case WM_LBUTTONDOWN: {
+        case WM_LBUTTONDOWN: 
+        {
             // printf("Clicked panel\n");
 			// m_Borderless = !m_Borderless;
             // SetWindowPos(GetHWND(), NULL, 0, 0, 0, 0, SWP_FRAMECHANGED | SWP_NOMOVE | SWP_NOSIZE);
@@ -53,6 +56,11 @@ LRESULT Button::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
                 WM_NOTIFY,
                 nmh.idFrom,
                 (LPARAM)&nmh);
+
+            // if(m_OnMouseDownFn != NULL)
+            // {
+            //     m_OnMouseDownFn(this->GetHWND(), wParam, lParam);
+            // }
 
 			break;
 		}
@@ -113,7 +121,7 @@ void Button::PaintContent(PAINTSTRUCT *pps)
     //
 
     RECT rect;
-    GetClientRect(GetHWND(), &rect);
+    GetClientRect(this->GetHWND(), &rect);
     SetBkColor(hdc, RGB(0,0,0));
     // SetDCBrushColor(hdc, RGB(0,0,0));
     SetTextColor(hdc, RGB(80,0,100));
@@ -123,8 +131,8 @@ void Button::PaintContent(PAINTSTRUCT *pps)
     // DrawText(hdc, data->text, strlen(data->text), &rect, DT_SINGLELINE | DT_VCENTER | DT_CENTER);
     DrawText(hdc, m_Text.c_str(), m_Text.size(), &rect, DT_SINGLELINE | DT_VCENTER | DT_CENTER);
     // DrawText(hdc, _T("Hello World!"), -1, &rect, DT_SINGLELINE | DT_CENTER | DT_VCENTER);
-    // std::cout << "YO" << std::endl;
-    ReleaseDC(GetHWND(),hdc);
+    // printf("ButtonText: %s\n", m_Text.c_str());
+    // ReleaseDC(this->GetHWND(),hdc);
 }
 
 void Button::SetText(char *text)
@@ -136,3 +144,8 @@ void Button::SetButtonTextColor(COLORREF color)
 {
     m_TextColor = color;
 }
+
+// void Button::SetOnMouseDownFn(BUTTON_MSG_FN fn)
+// {
+//     m_OnMouseDownFn = fn;
+// }

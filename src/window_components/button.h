@@ -8,6 +8,9 @@
 #include "../common.h"
 #include "../base_components/base_panel.h"
 
+// class Button;
+
+// typedef int (Button::*BUTTON_MSG_FN)(HWND hWnd, WPARAM wParam, LPARAM lParam);
 
 class Button : public BasePanel
 {
@@ -23,11 +26,12 @@ protected:
 public:
     std::string m_Text;
     COLORREF m_TextColor;
+    // BUTTON_MSG_FN m_OnMouseDownFn;
 
 public:
     void SetText(char *text);
     void SetButtonTextColor(COLORREF color);
-
+    // void SetOnMouseDownFn(BUTTON_MSG_FN fn);
 };
 
 

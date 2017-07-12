@@ -33,6 +33,7 @@ public:
 
 public:
     Panel* GetPanel(void);
+    Scrollbar* GetVScrollBar(void);
     void SetVScroll(bool isActive);
     bool IsVScrollActive(void);
 

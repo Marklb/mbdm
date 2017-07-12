@@ -2,15 +2,20 @@
 #define __BASE_PANEL_H__
 
 #include <windows.h>
+#include <vector>
 
 #include "../common.h"
 #include "../utils/paint_utils.h"
+
+class BasePanel;
 
 class BasePanel
 {
 protected:
     HWND m_hWnd;
     COLORREF m_BgColor = COLOR_NONE;
+    // std::vector<BasePanel *> m_ListeningHwnds;
+    std::vector<HWND> m_ListeningHwnds;
 
 protected:
     virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
@@ -43,6 +48,10 @@ public:
     void SetPosition(int x, int y);
     void SetSize(int w, int h);
     void SetBackgroundColor(COLORREF color);
+    // void AddListener(BasePanel *panel);
+    // virtual int ListenedMessage(BasePanel *from, UINT uMsg, WPARAM wParam, 
+    //     LPARAM lParam) { return 0; };
+    void AddListener(HWND hWnd);
 };
 
 

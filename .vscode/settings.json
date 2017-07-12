@@ -3,6 +3,7 @@
     "*.m": "matlab",
     "*.h.in": "cpp",
     "*.jsx": "javascript",
-    "xiosbase": "cpp"
+    "xiosbase": "cpp",
+    "*.rh": "cpp"
   }
 }

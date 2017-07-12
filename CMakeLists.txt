@@ -44,14 +44,15 @@ set(MBDM_SRCS
   ${PROJECT_SOURCE_DIR}/core/simulated_desktop.cpp
   ${PROJECT_SOURCE_DIR}/core/simulated_desktops_manager.cpp
   ${PROJECT_SOURCE_DIR}/utils/paint_utils.cpp
+  ${PROJECT_SOURCE_DIR}/window_components/panels/keyboard_settings_panel.cpp
   ${PROJECT_SOURCE_DIR}/window_components/button.cpp
   ${PROJECT_SOURCE_DIR}/window_components/panel.cpp
   ${PROJECT_SOURCE_DIR}/window_components/scrollable_panel.cpp
   ${PROJECT_SOURCE_DIR}/window_components/scrollbar.cpp
   ${PROJECT_SOURCE_DIR}/windows/current_simulated_desktop_window.cpp
+  ${PROJECT_SOURCE_DIR}/windows/debug_window.cpp
   ${PROJECT_SOURCE_DIR}/windows/settings_window.cpp
   ${PROJECT_SOURCE_DIR}/mbdm.cpp
-  ${PROJECT_SOURCE_DIR}/custom.cpp
 )
 
 

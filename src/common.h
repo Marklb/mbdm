@@ -24,5 +24,6 @@ struct kb_nmhdr_t{
     int vkCode;
 }typedef KBNMHDR;
 
+// typedef int *(*msgFn)(HWND hWnd, WPARAM wParam, LPARAM lParam);
 
 #endif // __COMMON_H__
